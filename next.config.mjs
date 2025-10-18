@@ -4,6 +4,10 @@ const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
+  images: {
+    // Use unoptimized images to avoid processing placeholder assets during development
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

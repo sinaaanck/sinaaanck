@@ -4,6 +4,7 @@ import { Inter, Poppins } from "next/font/google";
 import { siteConfig } from "@/site.config";
 import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
 import Link from "next/link";
+import { Github, Linkedin } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"], variable: "--font-poppins" });
@@ -46,6 +47,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link className="hover:underline" href="#projects">Projects</Link>
               <Link className="hover:underline" href="#contact">Contact</Link>
               <a className="hover:underline" href="/resume.pdf" download>Resume</a>
+              <a className="inline-flex items-center justify-center h-8 w-8 rounded hover:text-text-primary" href={siteConfig.profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+                <Github className="h-4 w-4" />
+              </a>
+              <a className="inline-flex items-center justify-center h-8 w-8 rounded hover:text-text-primary" href={siteConfig.profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+              </a>
             </nav>
           </div>
         </footer>
