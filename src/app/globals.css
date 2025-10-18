@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f8fafc;
+  --text: #0f172a;
+}
+
+/* Smooth transitions for theme and hover */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+/* Hover tilt effect for cards */
+.tilt:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-2px);
+  box-shadow: 0 15px 35px rgba(17, 24, 39, 0.12);
+}
+
+/* Subtle hover scale */
+.hover-pop:hover {
+  transform: scale(1.02);
+}
+
+/* Type cursor */
+.type-cursor::after {
+  content: "|";
+  animation: blink 1.1s infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+/* Confetti micro animation */
+.confetti-container {
+  position: relative;
+  overflow: visible;
+}
+.confetti {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  opacity: 0;
+  border-radius: 2px;
+  animation: confetti-fall 1200ms ease-out forwards;
+}
+@keyframes confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1;}
+  100% { transform: translateY(60px) rotate(360deg); opacity: 0;}
+}
+
+/* Button styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center bg-primary text-white px-5 py-2.5 rounded-lg shadow-soft hover:shadow-lg hover:bg-teal-500;
+}
+.btn-secondary {
+  @apply inline-flex items-center justify-center border border-teal-300 text-teal-700 px-5 py-2.5 rounded-lg hover:bg-teal-50;
+}
+
+/* Section spacing */
+.section {
+  @apply py-16 md:py-24;
+}
